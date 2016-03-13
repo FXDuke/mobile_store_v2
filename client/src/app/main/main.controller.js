@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr) {
+  function MainController($timeout, webDevTec, toastr, $http) {
     var vm = this;
 
     vm.awesomeThings = [];
@@ -15,6 +15,16 @@
     vm.showToastr = showToastr;
 
     activate();
+
+    $http({
+      method: 'GET',
+      url: 'http://localhost:4001/api/v1/phones',
+      xsrfHeaderName: ' X-Requested-With'
+    }).then(function successCallback(response) {
+        console.log(response.data);
+    }, function errorCallback(response) {
+        console.log(response);
+    });
 
     function activate() {
       getWebDevTec();
