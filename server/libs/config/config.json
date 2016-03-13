@@ -1,0 +1,19 @@
+{
+  "port": 4001,
+  "mongoose": {
+    "uri": "mongodb://localhost/mobilestorev2-dev",
+    "options": {}
+  },
+  "session": {
+    "secret": "chat",
+    "saveUninitialized": true,
+    "resave": true,
+    "name": "session",
+    "cookie": {
+      "path": "/",
+      "httpOnly": true,
+      "maxAge": null,
+      "secure": false
+    }
+  }
+}

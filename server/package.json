@@ -1,0 +1,32 @@
+{
+  "name": "chat_api",
+  "version": "1.0.0",
+  "description": "Server side for chat app",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IlyaLytvynov/chat_v2.git"
+  },
+  "keywords": [
+    "Chat",
+    "node",
+    "express"
+  ],
+  "author": "Ilya_Litvinov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IlyaLytvynov/chat_v2/issues"
+  },
+  "homepage": "https://github.com/IlyaLytvynov/chat_v2#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.5",
+    "nconf": "^0.8.4",
+    "node-uuid": "^1.4.7"
+  }
+}
