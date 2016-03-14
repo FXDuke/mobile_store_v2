@@ -23,4 +23,9 @@ const createInput = (req) => {
     return input;
 };
 
-module.exports = createInput;
+const inputValidator = (input) => {
+
+}
+module.exports = {
+    createInput
+};

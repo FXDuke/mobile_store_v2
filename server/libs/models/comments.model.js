@@ -1,8 +1,10 @@
 /**
- * Created by IlyaLitvinov on 13.03.16.
+ * @module phones model
  */
 const mongoose = require('./mongoose');
-
+/**
+ * created Schema object for mongoose
+ */
 const Schema = mongoose.Schema;
 
 const CommentSchema = new Schema({
@@ -18,8 +20,8 @@ const CommentSchema = new Schema({
         type: String,
         required: true
     },
-    date: {
-        type: Date,
+    created_on: {
+        type: Number,
         required: true
     }
 });

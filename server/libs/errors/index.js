@@ -5,6 +5,9 @@
 
 const util = require('util');
 
+/**
+ * Extends base node error class
+ */
 class BaseError extends Error {
     constructor(message) {
         super(message);
@@ -28,7 +31,7 @@ class AppError extends BaseError {
     }
 }
 
-class inValidTokenError extends BaseError {
+class InValidTokenError extends BaseError {
     constructor(message) {
         super(message);
         this.message = "Invalid token error";
@@ -36,7 +39,7 @@ class inValidTokenError extends BaseError {
     }
 }
 
-class requestError extends BaseError {
+class RequestError extends BaseError {
     constructor(message) {
         super(message);
         this.message = message || "Bad request";
@@ -44,8 +47,18 @@ class requestError extends BaseError {
     }
 }
 
+class NotFound extends BaseError {
+    constructor(message) {
+        super(message);
+        this.message = message || "Not found";
+        this.httpCode = "404";
+    }
+}
+
 module.exports ={
+    BaseError: BaseError,
     AppError: AppError,
-    invalidTokenError: inValidTokenError,
-    requestError: requestError
+    InvalidTokenError: InValidTokenError,
+    RequestError: RequestError,
+    NotFound: NotFound
 };
