@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('client', ['ngAnimate', 'ui.router', 'ui.bootstrap', 'toastr']);
+    .module('client', ['ngAnimate', 'ui.router', 'ui.bootstrap']);
 
 })();
