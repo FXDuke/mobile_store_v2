@@ -12,3 +12,5 @@
 - Для проверки на маке\линукс mongo mobilestorev2-dev
     >db.phones.find().pretty()
      выведется огромный json
+
+   на windows заходим   С:\MongoDb\Server\3.2\bin выполняем команду mongo mobilestorev2-dev в консоли
