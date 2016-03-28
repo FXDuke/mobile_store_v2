@@ -22,12 +22,12 @@ class CollectionCreator {
 
   init () {
     mongoose.connection.on('open', () => {
-      mongoose.connection.db.collections().then(res => {
-        //todo create auto droping db if exist
-        debugger;
-        return this.createDb();
-      })
-
+      mongoose.connection.db.dropCollection('phones', (err, result) => {
+        mongoose.connection.db.collections().then(res => {
+          //todo create auto droping db if exist
+          return this.createDb();
+        })
+      });
     })
   }
 
