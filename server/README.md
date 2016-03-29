@@ -18,3 +18,7 @@
 
 #Запросы к серверу
 Получение каталога телефонов GET http://localhost:4001/api/v1/phones
+
+#Шаблоны
+https://wireframe.cc/PfAd8i - детали
+https://wireframe.cc/OCPbOo  - главная
