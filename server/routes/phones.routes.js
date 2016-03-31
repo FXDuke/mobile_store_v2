@@ -11,15 +11,6 @@ const url = '/phones/';
 exports.getAll = (req, res, next) => {
     return Phones.getAll()
         .then(phones => {
-            phones = phones.map(item => {
-                return {
-                    _id: item._id,
-                    name: item.name,
-                    price: item.price,
-                    imgUrl: item.images[0]
-                };
-            });
-
             res.status(200);
             res.json(phones);
         })

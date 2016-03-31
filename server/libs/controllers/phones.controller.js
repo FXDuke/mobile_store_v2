@@ -15,7 +15,15 @@ const Error = require('../errors/index');
 const getAll = () => {
     return PhoneModel.find()
         .then(phones => {
-            return phones;
+            return phones.map(item => {
+                return {
+                    _id: item._id,
+                    name: item.name,
+                    price: item.price,
+                    imgUrl: item.images[0],
+                    description: `${item.description[0].slice(0, 100)}...`
+                };
+            });
         })
         .catch(e => {
             return e;
