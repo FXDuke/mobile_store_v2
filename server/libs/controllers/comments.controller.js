@@ -37,7 +37,8 @@ const getOne = (id) => {
  * { item_id: string,
  *   text: String,
  *   author: String,
- *   created_on: Date  }
+ *   created_on: Date,
+ *   point: Number}
  */
 
 const setComment = (input) => {

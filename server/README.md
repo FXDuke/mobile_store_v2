@@ -8,7 +8,7 @@
     !!! Консоль не закрываем
 - делаем npm i в папку server
 - Переходим в server/database
-- Выполняем команду node export.script.js
+- Выполняем команду node export.script.js, comments.export.js
 - Для проверки на маке\линукс mongo mobilestorev2-dev
     >db.phones.find().pretty()
      выведется огромный json

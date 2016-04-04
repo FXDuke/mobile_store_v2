@@ -1,7 +1,7 @@
 /**
  * @module phones model
  */
-const mongoose = require('./mongoose');
+const mongoose = require('mongoose');
 /**
  * created Schema object for mongoose
  */
