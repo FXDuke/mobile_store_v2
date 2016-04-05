@@ -27,6 +27,10 @@ const CommentSchema = new Schema({
     rating: {
         type: Number,
         required: true
+    },
+    subcomment_ids: {
+        type: Array,
+        required: false
     }
 });
 

@@ -23,7 +23,7 @@ function CreateCollection() {
             debugger;
             const input = {
                 item_id: phone[0].id,
-                text: 'test',
+                text: 'comment for phone',
                 author: 'test author',
                 created_on: new Date().getTime(),
                 rating: 4
@@ -32,7 +32,18 @@ function CreateCollection() {
             return new CommentModel(input).save()
         })
         .then(res => {
-            console.log(res);
+            const input = {
+                item_id: res.id,
+                text: 'comment for comment',
+                author: 'test author',
+                created_on: new Date().getTime(),
+                rating: 4
+            };
+
+            return new CommentModel(input).save()
+        })
+        .then(res => {
+            console.log(res.id);
         })
         .catch(e => {
             console.log(e);
