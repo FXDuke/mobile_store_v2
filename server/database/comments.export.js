@@ -26,7 +26,7 @@ function CreateCollection() {
                 text: 'comment for phone',
                 author: 'test author',
                 created_on: new Date().getTime(),
-                rating: 4
+                item_rating: 4
             };
 
             return new CommentModel(input).save()
@@ -37,7 +37,7 @@ function CreateCollection() {
                 text: 'comment for comment',
                 author: 'test author',
                 created_on: new Date().getTime(),
-                rating: 4
+                item_rating: 4
             };
 
             return new CommentModel(input).save()

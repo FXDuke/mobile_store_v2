@@ -24,9 +24,9 @@ const CommentSchema = new Schema({
         type: Number,
         required: true
     },
-    rating: {
+    item_rating: {
         type: Number,
-        required: true
+        required: false
     },
     subcomment_ids: {
         type: Array,

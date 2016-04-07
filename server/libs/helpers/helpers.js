@@ -24,8 +24,8 @@ const createInput = (req) => {
 };
 
 const inputValidator = (input) => {
-
-}
+    //todo create validator
+};
 module.exports = {
     createInput
 };

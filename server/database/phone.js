@@ -60,10 +60,6 @@ const PhoneSchema = new Schema({
   storage: {
     type: Object,
     required: true
-  },
-  averageRating: {
-    type: Number,
-    required: true
   }
 });
 

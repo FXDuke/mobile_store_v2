@@ -15,8 +15,10 @@ const Error = require('../errors/index');
  * @return {array} of comments for item
  */
 const getAll = (item_id) => {
-    return CommentModel.find({item_id: item_id}).then(comments => {
-            return comments;
+    return CommentModel.find({}).then(allComments => {
+            return allComments.filter(comment => {
+                return comment.item_id.toString() === item_id;
+            });
         }, () => {
            return new Error.AppError();
         });
@@ -48,6 +50,26 @@ const setComment = (input) => {
     //todo create input validator
     input.created_on = Date.now();
 
+    return saveComment(input)
+        .then((newComment) => {
+            if(input.parent_id) {
+                var subCommentId = newComment.id;
+
+                return CommentModel.findById(input.parent_id).then(comment => {
+                    comment.subcomment_ids = comment.subcomment_ids || [];
+
+                    comment.subcomment_ids.push(subCommentId);
+                    return comment.save();
+
+                })
+            }
+
+            return newComment
+        })
+
+};
+
+function saveComment (input) {
     return new CommentModel(input)
         .save()
         .then(res => {
@@ -56,7 +78,7 @@ const setComment = (input) => {
         .catch(e => {
             return e;
         });
-};
+}
 
 module.exports = {
     getAll: getAll,
