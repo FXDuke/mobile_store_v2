@@ -15,7 +15,7 @@
         controllerAs: 'main'
       })
       .state('details', {
-        url: '/details',
+        url: '/details/:id',
         templateUrl: 'app/details/details.view.html',
         controller: 'DetailsController',
         controllerAs: 'details'

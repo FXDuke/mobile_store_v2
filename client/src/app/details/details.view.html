@@ -1,1 +1,26 @@
-<div>Details</div>
+<div>
+	<div class = "content">
+		<div class="gallery">
+			<div class = "large-image">
+				<img ng-src="http://localhost:4001/api/v1/{{details.largeImg}}">
+			</div>
+			<ul>
+				<li ng-repeat="img in details.phone.images"><img ng-src="http://localhost:4001/api/v1/{{img}}" ng-click = "details.changeImg(img)"></li>
+			</ul>
+		</div>
+		
+		<div class="specification">
+			<h2>{{details.phone.name}}</h2>
+			<h3>Specification</h3>
+			{{details.phone.description}}
+		</div>
+		<!-- <div>
+			{{details.phone.description}}
+		</div> -->
+		<div class="reviews">
+			<h2>Reviews:</h2>
+			<button>Add reviev</button>
+		</div>
+		<comments ng-repeat = "comment in details.comments" comment = "comment"></comments>
+	</div>
+</div>

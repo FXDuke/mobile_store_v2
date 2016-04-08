@@ -1,1 +1,20 @@
-<div class = "test">Main view</div>
+
+<div ng-repeat="item in main.items" class = "col-lg-3 col-md-3 col-sm-3">
+	<div class="box">
+		<a ui-sref="details({id: item._id})">
+			<div class="picture">
+				<img src="http://localhost:4001/api/v1/{{item.imgUrl}}">
+			</div>
+			<div class="content_box">
+				<div class = "phones">
+					<div class="short_description">{{item.name}}</div>
+					<div class="price">{{item.price}}
+					<span class="g-price-uah-sign"> грн</span>
+					</div>
+				</div>
+				<div class="description">{{item.description}}</div>
+			</div>
+		</a>
+		<button>Add</button>
+	</div>
+</div>
