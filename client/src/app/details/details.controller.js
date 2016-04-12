@@ -14,6 +14,12 @@
     vm.largeImg = null;
     vm.phone = {};
     vm.comments = [];
+    vm.newComments = {
+        "item_id":  $stateParams.id, 
+        "text": null, 
+        "author": null, 
+        "item_rating": 0
+      };
 
     // $http({
     //     method: "GET",
@@ -28,6 +34,17 @@
       }, function (reject) {
         console.log(reject);
       });
+
+    vm.setCommentsItems = function () {
+      detailsModel.setCommentsItems(vm.newComments)
+        .then(function (response) {
+          debugger;
+          vm.comments.push(response);
+        }, function (reject) {
+          console.log(reject);
+        });
+    }
+    
 
     
     detailsModel.fetchData($stateParams.id)

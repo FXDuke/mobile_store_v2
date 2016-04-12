@@ -19,7 +19,6 @@
   }
 
   function controllerFunction ($scope) {
-    debugger
     console.log('Comments init')
   }
 })();

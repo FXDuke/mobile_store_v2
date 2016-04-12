@@ -2,26 +2,37 @@
     margin 0
     padding 0
 
+body
+    background #DD9
+    
+
 .content
-	width 100%
-	height 900px
-	margin 0 auto
+	width 980px
+	margin 10px auto
 	position relative
+	background-color #ffffff
+	border-radius 5px
+	border 1px solid black
+	box-shadow 0 0 8px 2px #000
+    
 
 .gallery
 	width 40%
 	position relative
 	display inline-block
 	box-sizing border-box
+	padding-top 10px
+	padding-left 10px
   
 
 .specification 
 	width 60%
 	position relative
 	float right 
-	background #DD9
 	display inline-block
-	padding-left 10px
+	padding 15px 15px 10px 30px
+	border-right 1px solid #eaeaea
+    border-bottom 1px solid #eaeaea
 	
 
 .large-image 
@@ -47,3 +58,133 @@
 
 .gallery ul li:hover 
 	border 2px solid rgba(135, 242, 123, .5)
+
+
+.reviews
+    width 100%
+    position relative
+	
+
+.reviews section
+    width 100%
+    position relative
+
+.get_reviews
+    width 100%
+    position relative
+    padding-left 40px
+
+
+.comment-wrapper
+    width 100%
+    box-sizing border-box
+    position relative
+
+.comment-author
+    display inline-block
+    width 20%
+
+.comment-rating
+	display inline-block
+	width 20%
+
+.comment-text
+	position reletive
+	width 100%
+
+
+.comment-date
+    width 25%
+	display inline-block
+    position reletive
+    float right
+
+	
+  
+
+
+
+
+
+.detail-add-review-f 
+    padding 2em 
+    width 25em
+    margin 0 auto 
+    background-color #EFD
+    margin-top 1.5em
+    margin-bottom 2em
+
+
+.f-i 
+    margin-bottom 0.5em
+
+.pp-comments-review-star-wrap 
+    width 16em
+    margin -5px auto 3em
+
+.detail-add-review-stars 
+    display inline-block
+    margin-right 0.7em
+    vertical-align middle
+
+.detail-add-review-stars-i 
+    background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAlCAMAAAD2tQAMAAAAn1BMVEUAAADX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szX1szt7Obg39fj49vn5+Di4dna2dDr6+Tl5d3c29Lp6eLe3dS++5T2AAAAKnRSTlMABDodCvpdLP3k3yT08MW8kHtuSevMs6OaioVlFQ/W08Gqf3RQMhPInhhq2mD3AAABR0lEQVQ4y42U13aDMBBEKaEaDAb33pPsSoj2/98WxwYSe2XgPnLuATEzoEjQNkovJotemomG3kP7cDmb9fBOCGBfOrW1nwKwoNMLE7hRxh3awIBf+E5t9w4M7uCqVdNseFA4H23eMIMKHLUcboRQk3rxNzVUywz3vkhSaOClcKbL86DJX4vmE0Mg4/BKylkp/GBhWqqiBvmLQmUUp9v9PhPoAO8D2uw6RJxXlbqsVTvU3ehOi4jTvwqt8Vsx2f8v5uJnb7TJ5rlYT5oN266VZ2KjkGgu/VIipJ4YKISVzNOpt2TUyzXqzTLqoSmZKJekIhmrk1Ivm9Ol2kDhAd28aEKz8/qohUu8OH+sMvFCXZva1csbqjS+AsfH630YXwarAqTxcXSjZhx66CWpJMBZVm7Np6dcj2OkAQ6HZ/orjBwSoKXIUOvLP9bIZSVzqbFtAAAAAElFTkSuQmCC') 
+    background-repeat no-repeat
+    width 39px
+    height 37px
+
+.detail-add-review-stars-i:hover 
+    background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAlCAMAAAD2tQAMAAAArlBMVEUAAAD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/oRD/rhz/qBb/tCL/mQj/tiT/oQ//uCb/uyj/sSD/qxj/pRP/nQv/mwr/nw3/oxH/xDD/vyz/lgb/yTX/lQT/kwP/sR+puNxeAAAAJHRSTlMABvo6Cu7EXSYc8+R9FNXLvKKQbi3grJuKhXVlSh8P3LVQMkVTZ/lvAAABXUlEQVQ4y43UaZNDQBCAYUcQRxDkvrNmYghDBNn//8dWbNhNteD5lEq9pVR3F6YFv2cGMZaDMumb2w3IRrO7Nx3QrXGek3NvNhHSPPfN3s7CeSnc9mRjLn0KdLa7m+O04m46M56kvwJ11NWJ+P7iah0vt3bvtUDZyrBgHckSlcj1gwZGN/W4Ou2a+fP2wuCi0MV11PCxiyLBXEoOy7DmM/H8j7xrGa/L5xmh1yOsDmivh7gTWrxWegivHdC83s1ORe5H6Mj+DU5AHzPx/2LOAgpbRcb+fbEKahPpE+bdlotashncnX2LADJmgA25AUSG3Yq04GE3JQlAJNiJCQUSDXYqjQG6gJdKLlBswptvOsolcf37ALqvJKtQxZL5OYmzCgfHR4uiyKigVYtyplyclX/AAa4uj4zO7OY4ZEuJi0fCg/FlVJfYty+SJsRUAuMTT/BTaKtggA7Thq0P4Qca82XmNiOWNAAAAABJRU5ErkJggg==')
+    background-repeat no-repeat
+    width 39px
+    height 37px
+
+.pp-comments-review-star-big 
+    color #999
+    font-size 0.8em
+    position relative
+    background-origin content-box
+    padding -1px 1.2em
+    cursor pointer
+
+.detail-add-review 
+    background #f6f6f6
+    border 1px solid #ededed
+    border-bottom 0
+    box-shadow inset 0 -3px 0 0 #c5c5c5, 3px 3px 7px 0 rgba(200, 200, 200, .5)
+    border-radius 3px
+
+.detail-add-review-stars-i 
+    float left
+
+.pp-comments-f-i-indent 
+    margin-bottom 1.5em
+
+.detail-add-review-f-i-title-vert 
+    font-size 1.2em
+    margin-bottom 0.2em
+
+.pp-comments-addictional-textarea
+    height 2.3em
+    width 100% 
+
+
+.detail-add-review-input-textarea
+	width 100% 
+
+.input-text 
+	width 100% 
+
+.inline 
+    display inline-block
+
+.detail-add-review-submit 
+    border-radius 3px
+    margin-left 2.3em
+
+.detail-add-review-submit .btn-link-i 
+    font-size 1.4em
+    padding 0.5em 1em 0.5em
+    line-height 1em
+    border-radius 3px
+    border 1px solid #ededed

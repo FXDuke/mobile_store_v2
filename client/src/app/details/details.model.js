@@ -20,6 +20,17 @@
       });
   	}
 
+    this.setCommentsItems = function (data) {
+      
+      return $http({
+        method: "POST",
+        url: "http://localhost:4001/api/v1/comments/",
+        data:data
+      }).then(function (response) {
+        return response.data;
+      });
+    }
+
     this.fetchData = function (id) {
       var url = 'http://localhost:4001/api/v1/phones/' + id;
 
