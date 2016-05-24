@@ -1,0 +1,20 @@
+<div class="catalog-item col-lg-4 col-md-4 col-sm-6 col-xs-12"  ng-repeat = "item in vm.items">
+  <a ui-sref="details({id: item._id})">
+    <div class="catalog-item_wrapper">
+      <div class="catalog-item_img">
+        <img ng-src="{{item.imgUrl}}" alt="img description">
+      </div>
+    </div>
+    <div class="catalog-item_wrapper">
+      <div class="catalog-item_description">
+        <div class="catalog-item_description-header">
+          <h4 class="catalog-item_description-title">{{item.name}}</h4>
+          <h4 class="catalog-item_description-price">{{item.price}}<span class="price_currency">$</span></h4>
+        </div>
+        <div class="catalog-item_description_text">
+          {{item.description}}
+        </div>
+      </div>
+    </div>
+  </a>
+</div>

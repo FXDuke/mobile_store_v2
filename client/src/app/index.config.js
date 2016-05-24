@@ -6,8 +6,8 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider) {
-    // Enable log
+  function config() {
+    
   }
 
 })();

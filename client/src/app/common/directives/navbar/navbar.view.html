@@ -1,0 +1,7 @@
+<ul class="navbar">
+	<li  ng-repeat = "menuItem in vm.menuItems">
+		<a class = "menu-item" ui-sref="{{menuItem | lowercase}}">
+			{{menuItem}}
+		</a>
+	</li>
+</ul>

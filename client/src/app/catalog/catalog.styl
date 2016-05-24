@@ -1,0 +1,42 @@
+
+.catalog-item
+  box-shadow $itemShadow
+  display table
+  cursor pointer
+  background #FFF
+  transition transform 0.2s
+
+.catalog-item:hover
+  transform scale(1.02)
+  z-index 100
+
+.catalog-item_description-header
+  border-bottom 1px solid black
+
+.catalog-item_description-header::after
+  clear both
+  display table
+  content ""
+
+.catalog-item_description-title
+  float left
+
+.catalog-item_description_text
+  height 3em
+  overflow hidden
+
+.catalog-item_description-price
+  float right
+
+.catalog-item_description
+  padding 1em 0
+
+.price_currency
+  vertical-align top
+  font-size 0.6em
+
+.catalog-item_img
+  padding 2em
+
+.catalog-item_img img
+  width 100%
