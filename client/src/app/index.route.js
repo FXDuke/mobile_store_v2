@@ -15,9 +15,15 @@
                 controllerAs: 'vm'
             })
             .state('details', {
-                url: '/details',
+                url: '/details/:id',
                 templateUrl: 'app/details/details.view.html',
                 controller: 'DetailController',
+                controllerAs: 'vm'
+            })
+            .state('cart', {
+                url: '/cart',
+                templateUrl: 'app/cart/cart.view.html',
+                controller: 'CartController',
                 controllerAs: 'vm'
             })
             .state('details.test', {

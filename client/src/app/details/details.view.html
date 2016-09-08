@@ -1,2 +1,75 @@
-<div class="container">
+<div class="details">
+    <div class="details__images">
+        <img ng-src="{{'http://localhost:4001/api/v1/' + vm.mainImageUrl}}" alt="photo" class="details__main_img">
+        <ul class="phone-thumbs">
+            <li ng-repeat="img in vm.phone.images" class="phone-thumb">
+                <img ng-src="{{'http://localhost:4001/api/v1/' + img}}" ng-click="vm.setImage(img)" alt=""  class="phone-image">
+            </li>
+        </ul>
+    </div>
+    <div class="details__detail">
+        <h2 class="details__title">{{vm.phone.name}}</h2>
+        <p class="details__description" ng-repeat="desc in vm.phone.description">{{desc}}</p>
+        <table class="specification">
+            <caption>Specification:</caption>
+            <colgroup>
+                <col></col>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td>Size</td>
+                    <td>{{vm.phone.sizeAndWeight.dimensions.join(' x ')}}</td>
+                </tr>
+                <tr>
+                    <td>Weight</td>
+                    <td>{{vm.phone.sizeAndWeight.weight}}</td>
+                </tr>
+                <tr>
+                    <td>Processor</td>
+                    <td>{{vm.phone.hardware.cpu}}</td>
+                </tr>
+                <tr>
+                    <td>Display</td>
+                    <td>{{vm.phone.display.screenSize + ', ' + vm.phone.display.screenResolution}}</td>
+                </tr>
+                <tr>
+                    <td>Cameras</td>
+                    <td>{{vm.phone.camera.primary ? (vm.phone.camera.primary + ', ' + vm.phone.camera.features.join(' ')) : 'unknown'}}</td>
+                </tr>
+                <tr>
+                    <td>OS</td>
+                    <td>{{[vm.phone.android.os, vm.phone.android.ui].join(' ')}}</td>
+                </tr>
+                <tr>
+                    <td>Storage</td>
+                    <td>{{
+                        'RAM: ' + (vm.phone.storage.ram ? vm.phone.storage.ram : 'unknown') +
+                        '  Flash: ' + (vm.phone.storage.flash ? vm.phone.storage.flash : 'unknown')
+                    }}</td>
+                </tr>
+                <tr>
+                    <td>Battery</td>
+                    <td>{{
+                        'Type: ' + vm.phone.battery.type +
+                        '. Talk time: ' + vm.phone.battery.talkTime +
+                        '; standby time: ' + (vm.phone.battery.standbyTime ? (vm.phone.battery.standbyTime + '.') : 'unknown')
+                    }}</td>
+                </tr>
+                <tr>
+                    <td>Connectivity</td>
+                    <td>{{
+                        'Wi-Fi: ' + vm.phone.connectivity.wifi +
+                        '; Bluetooth: ' + vm.phone.connectivity.bluetooth +
+                        '; GPS: ' + (vm.phone.connectivity.gps ? 'enabled' : 'no')
+                    }}</td>
+                </tr>
+
+                <!-- <tr>
+                    <td>itemName</td>
+                    <td>{{vm.phone.name}}</td>
+                </tr> -->
+
+            </tbody>
+        </table>
+    </div>
 </div>

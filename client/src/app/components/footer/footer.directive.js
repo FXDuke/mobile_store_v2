@@ -1,31 +1,29 @@
-(function() {
-    'use strict';
+(function () {
+  'use strict';
 
-    angular
-        .module('client')
-        .directive('footer', footer);
+  angular
+    .module('client')
+    .directive('footer', footer);
+
+  /** @ngInject */
+  function footer() {
+    var directive = {
+      restrict: 'E',
+      templateUrl: 'app/components/footer/footer.view.html',
+      scope: {},
+      controller: FooterController,
+      controllerAs: 'vm',
+      bindToController: true
+    };
+
+    return directive;
 
     /** @ngInject */
-    function footer() {
-        var directive = {
-            restrict: 'E',
-            templateUrl: 'app/components/footer/footer.view.html',
-            scope: {},
-            controller: FooterController,
-            controllerAs: 'vm',
-            bindToController: true
-        };
+    function FooterController() {
+      // var vm = this;
 
-        return directive;
-
-        /** @ngInject */
-        function FooterController() {
-            var vm = this;
-
-            debugger;
-            // "vm.creationDate" is available by directive option "bindToController: true"
-        }
+      // "vm.creationDate" is available by directive option "bindToController: true"
     }
+  }
 
 })();
-

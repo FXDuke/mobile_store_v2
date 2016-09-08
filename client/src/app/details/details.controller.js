@@ -1,25 +1,40 @@
 (function () {
-    angular.module('client')
+    'use strict';
+
+    angular
+        .module('client')
         .controller('DetailController', DetailsController);
 
-    function DetailsController ($stateParams) {
+    /** @ngInject */
+    function DetailsController ($stateParams, $http, $log) {
         var vm = this;
-        debugger;
 
-        vm.menuItems = [
-            {
-                state: 'home',
-                title: 'to home'
-            },
-            {
-                state: 'details.test',
-                title: 'to test1'
-            },
-            {
-                state: 'details.test2',
-                title: 'to test2'
-            }
-        ];
-        console.log('Details controller');
+        vm.setImage = function setImage(imageUrl) {
+            vm.mainImageUrl = imageUrl;
+        };
+
+        function getPhoneDetails() {
+            $http({
+                method: 'GET',
+                url: 'http://localhost:4001/api/v1/phones/' + $stateParams.id
+            }).then(function (resp) {
+                vm.phone = resp.data;
+                vm.setImage(vm.phone.images[0]);
+            });
+        }
+
+        if ($stateParams.id == '') {
+            $http({
+                method: 'GET',
+                url: 'http://localhost:4001/api/v1/phones'
+            }).then(function (resp) {
+                $stateParams.id = resp.data[0]._id;
+                getPhoneDetails();
+            });
+        } else {
+            getPhoneDetails();
+        }
+
+        $log.log('Details controller');
     }
 })();

@@ -7,9 +7,15 @@
             return [
                 {
                     state: 'home',
-                    title: 'home'
+                    title: 'Home'
+                }, {
+                    state: 'details',
+                    title: 'Details'
+                }, {
+                    state: 'cart',
+                    title: 'Cart'
                 }
-            ]
+            ];
         });
 
 })();

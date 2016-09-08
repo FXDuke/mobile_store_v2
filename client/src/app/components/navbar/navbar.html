@@ -1,15 +1,15 @@
-<nav class="navbar navbar-static-top navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="https://github.com/Swiip/generator-gulp-angular">
-        <span class="glyphicon glyphicon-home"></span> Gulp Angular
-      </a>
+<div class="navigation">
+    <button class="menu__button" ng-class="{true: 'menu__button--on', false: ''}[button.on]" ng-click="button.on = !button.on">
+        <div class="menu__burger"></div>
+    </button>
+    <nav class="menu">
+        <ul class="menu__list">
+            <li ng-repeat = "menuItem in vm.menuItems" class="menu__item" ui-sref-active="menu__item--active">
+                <a ui-sref="{{menuItem.state}}" class="menu__link">{{menuItem.title}}</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="search">
+        <input type="text" class="search__input" ng-model="vm.search" ng-change="vm.searchPhone()" placeholder="search">
     </div>
-
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
-      <ul class="nav navbar-nav">
-        <li ng-repeat = "menuItem in vm.menuItems"><a ui-sref="{{menuItem.state}}">{{menuItem.title}}</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+</div>

@@ -1,22 +1,26 @@
-(function() {
-  'use strict';
+(function () {
+    'use strict';
 
-  angular
-    .module('client')
-    .controller('MainController', MainController);
+    angular
+        .module('client')
+        .controller('MainController', MainController);
 
-  /** @ngInject */
-  function MainController($timeout, $http) {
-    var vm = this;
+    /** @ngInject */
+    function MainController(searchQuery, navbarConfig, $http, $log, $interval) {
+        var vm = this;
+        vm.filter = '';
 
-    $http({
-      method: 'GET',
-      url: 'http://localhost:4001/api/v1/phones'
-    }).then(function (resp) {
-      debugger;
-      vm.items = resp.data;
-    });
+        $interval(function () {
+            vm.filter = searchQuery.getSearchQuery();
+        }, 500);
 
-    console.log('Main page!');
-  }
+        $http({
+            method: 'GET',
+            url: 'http://localhost:4001/api/v1/phones'
+        }).then(function (resp) {
+            vm.items = resp.data;
+        });
+
+        $log.log('Main controller');
+    }
 })();
