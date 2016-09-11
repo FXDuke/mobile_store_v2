@@ -23,11 +23,8 @@
 
 # Запросы к серверу
 Получение каталога телефонов GET http://localhost:4001/api/v1/phones
-
-Плучение деталей для телефона  GET http://localhost:4001/api/v1/phones/:id
-
+Получение деталей для телефона  GET http://localhost:4001/api/v1/phones/:id
 Получение комментариев к телефону GET http://localhost:4001/api/v1/comments/:id
-
 Добавление комментария к телефону POST http://localhost:4001/api/v1/comments/
 <pre>body: {
     "item_id": "5706d89c40fe4998057b4fe9",
@@ -36,5 +33,5 @@
     "item_rating": 1
 }</pre>
 # Шаблоны
-https://wireframe.cc/PfAd8i - детали  
+https://wireframe.cc/PfAd8i - детали
 https://wireframe.cc/OCPbOo  - главная

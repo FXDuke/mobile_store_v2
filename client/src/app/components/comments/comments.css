@@ -1,0 +1,186 @@
+/*
+*    comments.css
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700);
+
+.comments {
+    /*max-width: 600px;*/
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.comments__form {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.comments__label {
+    margin: 10px 0 10px;
+    font: 700 16px 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #444;
+}
+
+.comments__input {
+    margin: 10px 0;
+    border-style: none;
+    border: 2px solid silver;
+    border-radius: 5px;
+    font: 16px 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #666;
+    outline: none;
+    padding: 8px;
+}
+
+.comments__input:focus {
+    border: 2px solid rgba(46, 159, 255, .8);
+}
+
+.comments__input--text {
+    min-height: 20px;
+    word-wrap: break-word;
+}
+
+.comments__input--error,
+.comments__input:focus.comments__input--error {
+    border: 2px solid red;
+}
+
+.comments__input--text:empty:after {
+    content: 'Your comment...';
+}
+
+.comments__input--text:after,
+.comments__input--text:focus:after {
+    content: '';
+    color: #bcbcbc;
+}
+
+.comments__input--text > p,
+.comments__input--text > div {
+    margin: 0;
+    padding: 0;
+}
+
+.comments__btn {
+    margin: 10px 0;
+    padding: .5em 1.5em;
+    cursor: pointer;
+    background: #2e9fff;
+    border: none;
+    border-radius: 5px;
+    font: 18px 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #fff;
+    transition: background .2s;
+}
+
+.comments__btn:hover {
+    background: #2389e0;
+}
+
+.comments__btn--hide {
+    display: none;
+}
+
+/*=== comments list ===*/
+
+.comments__list {
+    margin: 20px 0;
+    padding: 0;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.comm {
+    position: relative;
+    margin: 10px 0;
+    padding-bottom: 5px;
+    display: flex;
+    flex-flow: column nowrap;
+    font: 16px 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    border-bottom: 1px solid silver;
+    cursor: pointer;
+}
+
+.comm__name {
+    font-weight: 700;
+    color: #007be4;
+}
+
+.comm__name h3 {
+    margin: 0;
+}
+
+.comm__text {
+    margin: 10px 0;
+    overflow: auto;
+}
+
+.comm__time {
+    align-self: flex-end;
+    color: #666;
+}
+
+.comm__btn-edit,
+.comm__btn-del {
+    position: absolute;
+    display: none;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    padding: 7px;
+    transition: background .5s;
+
+    /*hide text*/
+    text-indent: -9999px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.comm__btn-edit { right: 55px; }
+.comm__btn-del  { right: 20px; }
+
+.comm__btn-edit:before,
+.comm__btn-del:before,
+.comm__btn-del:after {
+    position: absolute;
+    display: block;
+    content: '';
+    top: 15px;
+    left: 7px;
+    width: 16px;
+    height: 1px;
+    opacity: .5;
+    background: #7f919e;
+}
+
+.comm__btn-edit:before {
+    top: 7px;
+    left: 7px;
+    width: 16px;
+    height: 16px;
+    background: url("img/pencil-edit-button.svg") no-repeat;
+    background-size: contain;
+}
+
+.comm__btn-edit:hover:before {
+    opacity: 1;
+}
+
+.comm__btn-del:before { transform: rotate(45deg); }
+.comm__btn-del:after  { transform: rotate(-45deg); }
+
+.comm__btn-del:hover:before,
+.comm__btn-del:hover:after {
+    opacity: 1;
+}
+
+.comm__btn-edit:hover,
+.comm__btn-del:hover {
+    /*background: #f1f2f4;*/
+}
+
+.comm:hover > .comm__btn-del,
+.comm:hover > .comm__btn-edit {
+    display: block;
+}

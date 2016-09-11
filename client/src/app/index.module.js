@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('client', ['ngAnimate', 'ui.router'])
+        .module('client', ['ngAnimate', 'ui.router', 'ngSanitize'])
         .service('searchQuery', function () {
             var _search = '';
             return {

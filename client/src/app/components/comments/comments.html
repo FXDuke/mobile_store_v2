@@ -1,0 +1,17 @@
+<div class="comments">
+    <div class="comments__form">
+        <input type="text" placeholder="Name" class="comments__input comments__input--name" ng-model="vm.newCommentModel.author">
+        <div contenteditable class="comments__input comments__input--text" placeholder="Your comment..." ng-model="vm.newCommentModel.text"></div>
+        <button type="button" class="comments__btn comments__btn--add" title="Add comment (Ctrl+Enter)" ng-click="vm.addComment()">Add comment</button>
+        <button type="button" class="comments__btn comments__btn--save comments__btn--hide" title="Save comment (Ctrl+Enter)" ng-click="vm.saveComment()">Save comment</button>
+    </div>
+    <ul class="comments__list">
+        <li class="comm" ng-repeat="comment in vm.comments | orderBy:'created_on':true">
+            <div class="comm__name"><h3 ng-bind="comment.author"></h3></div>
+            <div class="comm__text" ng-bind-html="comment.text"></div>
+            <time datetime="{{comment.date}}" class="comm__time" ng-bind="comment.date"></time>
+            <div class="comm__btn-edit" title="Edit comment" ng-click="vm.editComment(comment, $index)">Edit</div>
+            <div class="comm__btn-del" title="Delete comment" ng-click="vm.removeComment(comment, $index)">Delete</div>
+        </li>
+    </ul>
+</div>

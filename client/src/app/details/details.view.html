@@ -56,20 +56,27 @@
                     }}</td>
                 </tr>
                 <tr>
+                    <td>Cellular</td>
+                    <td>{{vm.phone.connectivity.cell}}</td>
+                </tr>
+                <tr>
                     <td>Connectivity</td>
                     <td>{{
-                        'Wi-Fi: ' + vm.phone.connectivity.wifi +
+                        ' Wi-Fi: ' + vm.phone.connectivity.wifi +
                         '; Bluetooth: ' + vm.phone.connectivity.bluetooth +
                         '; GPS: ' + (vm.phone.connectivity.gps ? 'enabled' : 'no')
                     }}</td>
                 </tr>
-
-                <!-- <tr>
-                    <td>itemName</td>
-                    <td>{{vm.phone.name}}</td>
-                </tr> -->
-
+                <tr>
+                    <td>Ports</td>
+                    <td>
+                        {{'USB: ' + vm.phone.hardware.usb}}<br>
+                        {{'Audiojack: ' + vm.phone.hardware.audioJack}}<br>
+                        {{'Accelerometer: ' + (vm.phone.hardware.accelerometer ? 'enabled' : 'no')}}
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
 </div>
+<comments></comments>

@@ -20,18 +20,20 @@
         return directive;
 
         /** @ngInject */
-        function NavbarController(searchQuery, navbarConfig) {
+        function NavbarController(searchQuery, navbarConfig, $state) {
             var vm = this;
             vm.search = '';
 
             // set search query when input changed
             vm.searchPhone = function () {
                 searchQuery.setSearchQuery(vm.search);
+                if (event.which === 13) {
+                    searchQuery.setSearchQuery(vm.search);
+                    $state.go('home');
+                }
             };
 
             vm.menuItems = navbarConfig();
         }
     }
 })();
-
-//TODO add keypress ENTER trigger and made search
