@@ -22,10 +22,10 @@
 - открываем третью консоль CMD, заходим в папку "mobile_store_v2\client" и выполняем команду "gulp serve" (Консоль не закрываем)  
 
 # Запросы к серверу
-Получение каталога телефонов GET http://localhost:4001/api/v1/phones
-Получение деталей для телефона  GET http://localhost:4001/api/v1/phones/:id
-Получение комментариев к телефону GET http://localhost:4001/api/v1/comments/:id
-Добавление комментария к телефону POST http://localhost:4001/api/v1/comments/
+Получение каталога телефонов GET http://localhost:4001/api/v1/phones<br>
+Получение деталей для телефона  GET http://localhost:4001/api/v1/phones/:id<br>
+Получение комментариев к телефону GET http://localhost:4001/api/v1/comments/:id<br>
+Добавление комментария к телефону POST http://localhost:4001/api/v1/comments/<br>
 <pre>body: {
     "item_id": "5706d89c40fe4998057b4fe9",
     "text": "comment for comment asdasdasdasdasdasdasd",
@@ -33,5 +33,5 @@
     "item_rating": 1
 }</pre>
 # Шаблоны
-https://wireframe.cc/PfAd8i - детали
+https://wireframe.cc/PfAd8i - детали<br>
 https://wireframe.cc/OCPbOo  - главная
