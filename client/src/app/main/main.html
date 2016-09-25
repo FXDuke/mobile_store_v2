@@ -1,22 +1,23 @@
 <div class="sort">
     <select class="sort__list" name="sorting" ng-model="vm.select">
         <option class="sort__item" value="" disabled selected>Sorting</option>
-        <option class="sort__item" value="name">Alphabetical A-Z</option>
-        <option class="sort__item" value="-name">Alphabetical Z-A</option>
-        <option class="sort__item" value="price">Monthly Cost Low to High</option>
-        <option class="sort__item" value="-price">Monthly Cost High to Low</option>
+        <option class="sort__item" value="name">Name: A-Z</option>
+        <option class="sort__item" value="-name">Name: Z-A</option>
+        <option class="sort__item" value="price">Price: lowest first</option>
+        <option class="sort__item" value="-price">Price: highest first</option>
+        <option class="sort__item" value="-average_rating">Rating</option>
     </select>
 </div>
 <div class="catalog">
     <div ng-repeat="item in vm.items | filter: vm.filter | orderBy:vm.select" class="phone">
         <a ui-sref="details({id: '{{item._id}}'})" title="{{item.name}}"><img class="phone__img" ng-src="{{'http://localhost:4001/api/v1/'+ item.imgUrl}}" alt=""></a>
         <a ui-sref="details({id: '{{item._id}}'})" title="{{item.name}}"><h2 class="phone__title">{{item.name}}</h2></a>
-        <p class="phone__rating" data-rating="{{item.average_rating}}">
+        <p class="phone__rating" data-rating="{{item.average_rating}}" title="Average rating: {{item.average_rating}}">
             &#9734;&#9734;&#9734;&#9734;&#9734;
-            <span>&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span style="width: {{item.average_rating * 20}}%">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
         </p>
         <p class="phone__description">{{item.description}}</p>
         <p class="phone__price">&#36; {{item.price}}</p>
-        <button class="btn__add">Add to cart</button>
+        <button class="btn__add" ng-click="vm.addToCart(item)">Add to cart</button>
     </div>
 </div>

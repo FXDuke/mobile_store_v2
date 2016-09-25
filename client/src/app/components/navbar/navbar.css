@@ -2,17 +2,26 @@
 *    navbar.css
 */
 
+navbar {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: #46a5cd;
+}
+
 .navigation {
     position: relative;
-    background: #0397d6;
+    flex: 1 1 auto;
     display: flex;
     align-items: center;
     min-height: 50px;
+    max-width: 1024px;
 }
 
 .menu {
     display: flex;
     align-items: center;
+    width: 100%;
 }
 
 .menu__item {
@@ -28,7 +37,7 @@
     bottom: 0;
     height: 4px;
     width: 0;
-    background: #f7ae36;
+    background: #f4bd63;
     transition: .2s;
 }
 
@@ -57,7 +66,7 @@
 }
 
 .menu__link:hover {
-    color: #f7ae36;
+    color: #f4bd63;
 }
 
 .search {
@@ -83,6 +92,7 @@
     position: absolute;
     top: 14px;
     left: 10px;
+    outline: none;
 }
 
 

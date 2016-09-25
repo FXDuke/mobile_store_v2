@@ -54,17 +54,6 @@
 
             vm.editIndex = null;
             vm.comments = [];
-            // vm.comments = [{
-            //         item_id: '1',
-            //         text: 'First comment',
-            //         author: 'Sergey',
-            //         item_rating: 1
-            //     },{
-            //         item_id: '2',
-            //         text: 'Second comment',
-            //         author: 'Andrey',
-            //         item_rating: 4
-            //     }];
 
             vm.newCommentModel = {
                 author: '',
@@ -82,36 +71,51 @@
                 vm.comments = resp.data;
             });
 
+            // get formated date of comment
+            vm.getFormatedDate = function(date) {
+                var formDate =  new Date(date);
+                return dateFormat(formDate);
+            };
+
+            // to control 'Add review' button state
+            vm.addButtonOn = false;
+
             this.addComment = function() {
-                var newComment = angular.copy(vm.newCommentModel);
-                inputText.removeClass('comments__input--error');
-                if (newComment.text != '') {
-                    newComment.author = newComment.author || 'Guest';
-                    newComment.created_on = new Date().getTime();
-                    newComment.item_id = $stateParams.id;
-                    // newComment.item_id = vm.comments.length == 0 ? 0 : (vm.comments[vm.comments.length - 1].item_id + 1);
+                inputName.focus();
 
-                    // add comment for item to server
-                    var req = {
-                        method: 'POST',
-                        url: 'http://localhost:4001/api/v1/comments/',
-                        data: newComment
+                if (vm.addButtonOn) {
+                    var newComment = angular.copy(vm.newCommentModel);
+                    inputText.removeClass('comments__input--error');
+                    if (newComment.text != '') {
+                        newComment.author = newComment.author || 'Guest';
+                        newComment.created_on = new Date().getTime();
+                        newComment.item_id = $stateParams.id;
+                        // newComment.item_id = vm.comments.length == 0 ? 0 : (vm.comments[vm.comments.length - 1].item_id + 1);
+
+                        // add comment for item to server
+                        var req = {
+                            method: 'POST',
+                            url: 'http://localhost:4001/api/v1/comments/',
+                            data: newComment
+                        }
+
+                        $http(req).then(function (resp) {
+                            vm.comments.push(resp.data);
+                        });
+
+                        vm.newCommentModel.author = '';
+                        vm.newCommentModel.text = '';
+                        vm.addButtonOn = !vm.addButtonOn;
+                    } else {
+                        // show error border
+                        inputText.addClass('comments__input--error');
+                        inputText.focus();
                     }
-
-                    $http(req).then(function (resp) {
-                        vm.comments.push(resp.data);
-                        // vm.comments = resp.data;
-                    });
-
-                    vm.newCommentModel.author = '';
-                    vm.newCommentModel.text = '';
-
-                    inputName.focus();
                 } else {
-                    // show error border
-                    inputText.addClass('comments__input--error');
-                    inputText.focus();
+                    vm.addButtonOn = !vm.addButtonOn;
+                    inputName.focus();
                 }
+
             };
 
             this.removeComment = function(comment, index, $log) {
@@ -123,11 +127,9 @@
                         'Content-Type': 'application/x-www-form-urlencoded'
                     }
                 }
-                debugger;
 
                 $http(req).then(function (resp) {
                     // vm.comments.push(resp.data);
-                    debugger;
                     $log.log(resp.data);
                 });
 
@@ -176,25 +178,25 @@
     }
 
     // set caret(cursor) position in contenteditable element (div)
-    function setCaret(elem) {
-        var range = document.createRange();
-        var sel = window.getSelection();
-        range.setStart(elem.lastChild, elem.lastChild.length);
-        range.collapse(true);
-        sel.removeAllRanges();
-        sel.addRange(range);
-    }
+    // function setCaret(elem) {
+    //     var range = document.createRange();
+    //     var sel = window.getSelection();
+    //     range.setStart(elem.lastChild, elem.lastChild.length);
+    //     range.collapse(true);
+    //     sel.removeAllRanges();
+    //     sel.addRange(range);
+    // }
 
     // formated date to string
     function dateFormat(date) {
-        // get date, month, hours, minutes with leading zero
-        var day = date.getDate() < 10 ? ('0' + date.getDate()) : date.getDate(),
-            month = (date.getMonth() + 1) < 10 ? ('0' + (date.getMonth() + 1)) : (date.getMonth() + 1),
-            hours = date.getHours() < 10 ? ('0' + date.getHours()) : date.getHours(),
-            minutes = date.getMinutes() < 10 ? ('0' + date.getMinutes()) : date.getMinutes(),
+        var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            day = date.getDate() < 10 ? ('0' + date.getDate()) : date.getDate(),
+            month = monthNames[date.getMonth()],
             // formated date
-            stringDate = day + '.' + month + '.' + date.getFullYear() + ' in ' + hours + ':' + minutes;
+            stringDate = month + ' ' + day + ', ' + date.getFullYear();
 
         return stringDate;
     }
 })();
+
+// TODO: focus on input Name after show it

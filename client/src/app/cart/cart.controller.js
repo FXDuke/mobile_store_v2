@@ -1,24 +1,27 @@
 (function () {
+    'use strict';
+
     angular.module('client')
         .controller('CartController', CartController);
 
-    function CartController ($stateParams, $log) {
+    function CartController (CartService, $stateParams, $log) {
         var vm = this;
+        vm.totalAll = 0;
+        vm.cartAllItems = CartService.getAllCartItems() || [];
 
-        vm.menuItems = [
-            {
-                state: 'home',
-                title: 'to home'
-            },
-            {
-                state: 'details.test',
-                title: 'to test1'
-            },
-            {
-                state: 'details.test2',
-                title: 'to test2'
-            }
-        ];
+        vm.calcTotal = function () {
+            vm.totalAll = 0;
+            vm.cartAllItems.forEach(function(element) {
+                vm.totalAll = vm.totalAll + (element.quantity * element.price);
+            })
+        }
+
+        vm.delCartItem = function (id) {
+            CartService.delCartItem(id);
+            vm.calcTotal();
+        }
+
+        vm.calcTotal();
 
         $log.log('Cart controller');
     }

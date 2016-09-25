@@ -26,16 +26,10 @@
                 controller: 'CartController',
                 controllerAs: 'vm'
             })
-            .state('details.test', {
-                url: '/test/:id',
-                templateUrl: 'app/details/details.test.view.html',
-                controller: 'DetailControllerNested',
-                controllerAs: 'vm'
-            })
-            .state('details.test2', {
-                url: '/test2',
-                templateUrl: 'app/details/details.test2.view.html',
-                controller: 'DetailControllerNested',
+            .state('checkout', {
+                url: '/checkout',
+                templateUrl: 'app/checkout/checkout.view.html',
+                controller: 'CheckoutController',
                 controllerAs: 'vm'
             });
 

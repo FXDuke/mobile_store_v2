@@ -2,6 +2,12 @@
 *    main.css
 */
 
+.main {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1024px;
+}
+
 .sort {
     display: flex;
     justify-content: flex-end;
@@ -39,11 +45,15 @@
     flex-flow: column nowrap;
     align-items: center;
     flex: 1 1 200px;
-    margin: 10px;
+    margin: 20px 10px;
     padding: 5px;
-    border: 1px solid #0397d6;
     border-radius: 10px;
     overflow: hidden;
+    border: 1px solid transparent;
+}
+
+.phone:hover {
+    border: 1px solid #a6a6a6;
 }
 
 .phone a {
@@ -56,15 +66,21 @@
 }
 
 .phone__title {
+    position: relative;
     margin: 0.67em 0;
-    font: 700 1.8rem 'Roboto', sans-serif;
+    font: 700 1.6rem 'Roboto', sans-serif;
     color: #222;
     text-align: center;
-    height: 4rem;
+    height: 25px;
+}
+
+.phone__title:hover {
+    text-decoration: underline;
 }
 
 .phone__description {
-    height: 60px;
+    overflow: hidden;
+    height: 45px;
     font: 400 1.2rem 'Roboto', sans-serif;
     color: #222;
 }
@@ -72,9 +88,10 @@
 .phone__rating {
     position: relative;
     color: #0397d6;
-    font-size: 3rem;
+    font-size: 2.4rem;
     padding: 0;
     margin: 0;
+    cursor: default;
 }
 
 .phone__rating span {
@@ -96,22 +113,21 @@
     margin: 0;
     color: #222;
     font: 700 2.4rem 'Roboto', sans-serif;
+    white-space: nowrap;
 }
 
 .btn__add {
-    /*width: 100px;
-    height: 20px;*/
     margin: 15px;
-    padding: 1em 1.5em;
+    padding: .8em 1.2em;
     border-radius: 5px;
     border-style: none;
     font: 700 1.8rem 'Roboto', sans-serif;
     color: #fff;
-    background: #0397d6;
+    background: #46a5cd;
     cursor: pointer;
 
 }
 
 .btn__add:hover {
-    background: #077aab;
+    background: #448099;
 }

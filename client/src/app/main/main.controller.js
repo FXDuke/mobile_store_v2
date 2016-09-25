@@ -6,7 +6,7 @@
         .controller('MainController', MainController);
 
     /** @ngInject */
-    function MainController(searchQuery, navbarConfig, $http, $log, $interval) {
+    function MainController(CartService, searchQuery, navbarConfig, $http, $log, $interval) {
         var vm = this;
         vm.filter = '';
 
@@ -20,6 +20,10 @@
         }).then(function (resp) {
             vm.items = resp.data;
         });
+
+        vm.addToCart = function (item) {
+            CartService.setCartItem(item);
+        };
 
         $log.log('Main controller');
     }
