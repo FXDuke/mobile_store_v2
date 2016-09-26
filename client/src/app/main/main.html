@@ -8,8 +8,8 @@
         <option class="sort__item" value="-average_rating">Rating</option>
     </select>
 </div>
-<div class="catalog">
-    <div ng-repeat="item in vm.items | filter: vm.filter | orderBy:vm.select" class="phone">
+<div class="catalog" ng-init="limit = 8">
+    <div ng-repeat="item in vm.items | filter: vm.filter | orderBy:vm.select | limitTo: limit as results" class="phone">
         <a ui-sref="details({id: '{{item._id}}'})" title="{{item.name}}"><img class="phone__img" ng-src="{{'http://localhost:4001/api/v1/'+ item.imgUrl}}" alt=""></a>
         <a ui-sref="details({id: '{{item._id}}'})" title="{{item.name}}"><h2 class="phone__title">{{item.name}}</h2></a>
         <p class="phone__rating" data-rating="{{item.average_rating}}" title="Average rating: {{item.average_rating}}">
@@ -21,3 +21,4 @@
         <button class="btn__add" ng-click="vm.addToCart(item)">Add to cart</button>
     </div>
 </div>
+<button ng-hide="results.length === vm.items.length" ng-click="limit = limit + 8" class="btn__show">show more...</button>

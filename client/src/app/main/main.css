@@ -131,3 +131,21 @@
 .btn__add:hover {
     background: #448099;
 }
+
+.btn__show {
+    display: block;
+    padding: 10px 24px;
+    margin: 0 auto 20px auto;
+    border-style: none;
+    border-radius: 4px;
+    font: 400 2rem 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    letter-spacing: 0.05em;
+    color: #fff;
+    background: #888;
+    cursor: pointer;
+    outline: none;
+}
+
+.btn__show:hover {
+    background: #666;
+}

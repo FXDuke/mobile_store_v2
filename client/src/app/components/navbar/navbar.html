@@ -8,6 +8,7 @@
                 <a ui-sref="{{menuItem.state}}" class="menu__link">{{menuItem.title}}</a>
             </li>
         </ul>
+        <p ng-bind="CartService.getAllCartItems.length">sdsdsd</p>
     </nav>
     <div class="search">
         <input type="text" class="search__input" ng-model="vm.search" ng-change="vm.searchPhone()" ng-keypress="vm.searchPhone($event)" placeholder="search">
