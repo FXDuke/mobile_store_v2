@@ -4,6 +4,50 @@
 
 .checkout__container {
     display: flex;
-    flex-flow: column;
+    justify-content: center;
     padding: 20px;
+}
+
+.order {
+    display: flex;
+    flex-flow: row wrap;
+    flex: 0 1 500px;
+}
+
+.order__label {
+    width: 100%;
+    font: 1.4rem 'Roboto', sans-serif;
+    margin: 20px 0 7px 0;
+}
+
+.order__input {
+    width: 100%;
+    margin: 0;
+    font: 1.4rem 'Roboto', sans-serif;
+    padding: 5px;
+    border-style: none;
+    border-radius: 3px;
+    border: 1px solid #aaa;
+}
+
+.order__btn {
+    width: 100%;
+    display: block;
+    padding: 8px 19px;
+    margin: 20px 0;
+    color: #fff;
+    background: #236899;
+    background: linear-gradient(to bottom, #1090d6 0%, #236899 100%);
+    border-style: none;
+    border-radius: 4px;
+    font: 700 1.8rem 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 3px 0 #ddd;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.order__btn:hover {
+    background: #236899;
+    box-shadow: 0 0 0 rgba(0,0,0,.2);
 }
